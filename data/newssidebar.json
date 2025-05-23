@@ -4,19 +4,19 @@
         "list": [
             {
                 "link": "/news",
-                "name": "2023 Best Beaches Contest Winners"
+                "title": "2023 Best Beaches Contest Winners"
             },
             {
                 "link": "/news",
-                "name": "Top 10 Diving Spots"
+                "title": "Top 10 Diving Spots"
             },
             {
                 "link": "/news",
-                "name": "Fishing ban to be implemented this year"
+                "title": "Fishing ban to be implemented this year"
             },
             {
                 "link": "/news",
-                "name": "Lifeguard saves child from drowning"
+                "title": "Lifeguard saves child from drowning"
             }
         ]
     },
@@ -25,27 +25,27 @@
         "list": [
             {
                 "link": "/news",
-                "name": "What to bring on the beach?"
+                "title": "What to bring on the beach?"
             },
             {
                 "link": "/news",
-                "name": "Planning Fun Activities"
+                "title": "Planning Fun Activities"
             },
             {
                 "link": "/news",
-                "name": "Diving Checklist"
+                "title": "Diving Checklist"
             },
             {
                 "link": "/news",
-                "name": "First Aid"
+                "title": "First Aid"
             },
             {
                 "link": "/news",
-                "name": "How to Build a Sand Castle"
+                "title": "How to Build a Sand Castle"
             },
             {
                 "link": "/news",
-                "name": "Tanning Tips"
+                "title": "Tanning Tips"
             }
         ]
     }
