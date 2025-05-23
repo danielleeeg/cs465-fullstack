@@ -20,9 +20,9 @@
                             <ul id="foods">
                                 {{#each meal}}
                                 <li>
-                                    <h2><a href="/meals">{{this.name}}</a></h2>
+                                    <h2><a href="{{this.link}}">{{this.title}}</a></h2>
                                     <div class="infos">
-                                        <a href="/meals"><img src="images/{{this.image}}" alt="Img" height="169"
+                                        <a href="{{this.link}}"><img src="images/{{this.image}}" alt="Img" height="169"
                                                 width="780"><span class="cover"></span></a>
                                         {{{this.description}}}
                                     </div>
