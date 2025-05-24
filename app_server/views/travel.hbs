@@ -21,7 +21,7 @@
 
                                 {{#each trips}}
                                 <li>
-                                    <a href="{{this.link}}"><img src="images/{{this.image}}" alt="Img"></a>
+                                    <a href="/api/trips/{{this.code}}"><img src="images/{{this.image}}" alt="Img"></a>
                                     <h2><a href="{{this.link}}">{{this.title}}</a></h2>
                                     {{{this.description}}}
                                 </li>
