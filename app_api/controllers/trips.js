@@ -33,7 +33,45 @@ const tripsFindByCode = async (req, res) => {
     }
 
 };
+
+
+
+//POST: /trips - Adds a new Trip
+// Regardless of outcome, response myst include HTML status code
+// and JSON message to the requesting client
+const tripsAddTrip = async (req, res) => {
+
+    console.log("Made it to trips Add Trip");
+    const newTrip = new Trip({
+        code: req.body.code,
+        title: req.body.title,
+        length: req.body.length,
+        start: req.body.start,
+        resort: req.body.resort,
+        perPerson: req.body.perPerson,
+        image: req.body.image,
+        description: req.body.description
+    });
+    const q = await newTrip.save();
+    if (!q) {
+        //Database returned no data
+        return res
+            .status(400)
+            .json(err);
+    } else {
+        //Return new trip
+        return res
+            .status(201)
+            .json(q);
+    }
+
+    console.log(q);
+};
+
+
+
 module.exports = {
     tripsList,
-    tripsFindByCode
+    tripsFindByCode,
+    tripsAddTrip
 };
