@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from "@angula
 import { Router } from "@angular/router";
 import { TripData } from '../services/trip-data';
 
-
+// Declare component as a standalone page
 @Component({
   selector: 'app-add-trip',
   standalone: true,

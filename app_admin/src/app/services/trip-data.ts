@@ -28,4 +28,6 @@ export class TripData {
   updateTrip(formData: Trip): Observable<Trip> {
     return this.http.put<Trip>(this.url + '/' + formData.code, formData);
   }
+
+
 }

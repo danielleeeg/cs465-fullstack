@@ -53,6 +53,8 @@ export class TripListing implements OnInit {
       })
   }
 
+
+
   ngOnInit(): void {
     console.log('ngOnInit');
     this.getStuff();
