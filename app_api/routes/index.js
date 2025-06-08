@@ -11,7 +11,12 @@ router
     .get(tripsController.tripsList)
     .post(tripsController.tripsAddTrip);
 
+
 // GET method returns trips by code:
-router.route('/trips/:tripCode').get(tripsController.tripsFindByCode);
+router
+    .route('/trips/:tripCode')
+    .get(tripsController.tripsFindByCode)
+    .put(tripsController.tripsUpdateTrip);
+
 
 module.exports = router;
