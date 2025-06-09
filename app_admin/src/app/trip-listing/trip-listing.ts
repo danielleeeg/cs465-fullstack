@@ -31,22 +31,32 @@ export class TripListing implements OnInit {
     this.router.navigate(['add-trip']);
   }
 
+  // Method for getting trip data
   private getStuff(): void {
 
+    // call getTrips GET request to return all trips
     this.tripData.getTrips()
       .subscribe({
 
         next: (value: any) => {
           this.trips = value;
 
+
+          // if there are more than zero trips, update message
           if (value.length > 0) {
             this.message = 'There are ' + value.length + ' tripsavailable.';
           }
+
+          // if no trips are available, update message
           else {
             this.message = 'There were no trips retireved from the database';
           }
+
+          // log message
           console.log(this.message);
         },
+
+        // send any errors to the console
         error: (error: any) => {
           console.log('Error: ' + error);
         }

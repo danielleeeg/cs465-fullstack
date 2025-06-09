@@ -17,9 +17,16 @@ export class TripCard implements OnInit {
 
   }
 
+  // Method for editing a trip
   public editTrip(trip: Trip) {
+
+    // remove trip code from local storage
     localStorage.removeItem('tripCode');
+
+    // update the trip code parameter to the contents from input
     localStorage.setItem('tripCode', trip.code);
+
+    // route to the edit trip form
     this.router.navigate(['edit-trip'])
   }
 

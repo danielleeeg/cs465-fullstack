@@ -144,6 +144,39 @@ export class EditTrip implements OnInit {
         })
     }
   }
+
+  // Method for deleting trips
+  public deleteTrip() {
+
+    // request confirmation for deletion
+    const confirmDelete = confirm(`Are you sure you want to delete trip "${this.trip.title}"?`);
+
+
+    // continue to delete if confirmed and if trip code valid
+    if (confirmDelete && this.trip.code) {
+
+      // delete trup
+      this.tripData.deleteTrip(this.trip.code)
+        .subscribe({
+          next: () => {
+
+            // remove trip code from local storage
+            localStorage.removeItem('tripCode');
+
+            // Navigate back to home or list
+            this.router.navigate(['']);
+          },
+
+          // if there is an error, send alert to user and console
+          error: (error: any) => {
+            console.error('Delete failed:', error);
+            alert('An error occurred while deleting the trip.');
+          }
+        });
+    }
+  }
+
+
   // get the form short name to access the form fields
   get f() { return this.editForm.controls; }
 }

@@ -34,15 +34,26 @@ export class AddTrip implements OnInit {
     })
   }
 
+  // Method to call at form completion-- triggers POST request
   public onSubmit() {
+
+    // set submitted status to true
     this.submitted = true;
+
+    // if the form is valid...
     if (this.addForm.valid) {
+
+      // send POST request to add form contents
       this.tripService.addTrip(this.addForm.value)
         .subscribe({
+
+          // for all data log it and then navigate back to home
           next: (data: any) => {
             console.log(data);
             this.router.navigate(['']);
           },
+
+          // if there is an error, log it in the console
           error: (error: any) => {
             console.log('Error: ' + error);
           }
