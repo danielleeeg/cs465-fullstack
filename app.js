@@ -19,6 +19,9 @@ var handlebars = require('hbs');
 // bring in the database
 require('./app_api/models/dbs')
 
+// bring in the environment file
+require('dotenv').config();
+
 var app = express();
 
 
