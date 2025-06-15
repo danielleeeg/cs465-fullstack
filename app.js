@@ -15,6 +15,7 @@ var aboutRouter = require('./app_server/routes/about');
 var contactRouter = require('./app_server/routes/contact');
 var apiRouter = require('./app_api/routes/index');
 var handlebars = require('hbs');
+var passport = require('passport');
 
 // bring in the database
 require('./app_api/models/dbs')
@@ -22,6 +23,11 @@ require('./app_api/models/dbs')
 // bring in the environment file
 require('dotenv').config();
 
+// pull in the passport configuration file
+require('./app_api/config/passport');
+
+
+// initialize the expresss app
 var app = express();
 
 
@@ -39,10 +45,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// initializde the use of passport
+app.use(passport.initialize());
+
 // Enable CORS
 app.use('/api', (req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
   next();
 })
@@ -57,6 +66,14 @@ app.use('/about', aboutRouter);
 app.use('/contact', contactRouter);
 app.use('/api', apiRouter);
 
+// Catch unauthorized error and create 401
+app.use((err, req, res, next) => {
+  if (err.name === 'UnauthorizedError') {
+    res
+      .status(401)
+      .json({ "message": err.name + ": " + err.message });
+  }
+});
 
 
 // catch 404 and forward to error handler

@@ -11,12 +11,13 @@ passport.use(
         },
         async (username, password, done) => {
             const q = await User.findOne({ email: username }).exec();
+            console.log(q);
             if (!q) {
                 return done(null, false, {
                     message: "incorrect username",
                 });
             }
-            if (!q.validPassowrd(password)) {
+            if (!q.validPassword(password)) {
                 return done(null, false, {
                     message: "Incorrect password.",
                 });
